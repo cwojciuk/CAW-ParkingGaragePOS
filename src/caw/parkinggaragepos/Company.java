@@ -10,7 +10,6 @@ package caw.parkinggaragepos;
  */
 public class Company {
     
-    private final String IDEXCEPTION = "Company ID cannot be null";
     private final String NAMEEXCEPTION = "Company Name cannot be null";
     private final String PARKINGEXCEPTION = "Company fee strategy cannot be null";
     

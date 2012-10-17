@@ -15,6 +15,10 @@ public class Startup {
         ParkingGarage pg1 = new ParkingGarage(40,bestValue);
         ParkingGarageRegister pgr = new ParkingGarageRegister(pg1);
         
-        pgr.EnterNewVehicle(Calendar.getInstance().);
+        pgr.EnterNewVehicle(Calendar.getInstance());
+        pgr.EnterNewVehicle(Calendar.getInstance());
+        pgr.EnterNewVehicle(Calendar.getInstance());
+        pgr.EnterNewVehicle(Calendar.getInstance());
+        pgr.EnterNewVehicle(Calendar.getInstance());
     }
 }

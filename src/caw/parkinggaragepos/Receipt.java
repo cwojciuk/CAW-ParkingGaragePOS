@@ -31,7 +31,7 @@ public class Receipt {
         return database.findCar(carID);
     }    
     
-    public final void outputReceipt(Calendar exit) {
+    public final void outputReceipt(Car c) {
         output.outputReceipt("My receipt");
     }
 }
