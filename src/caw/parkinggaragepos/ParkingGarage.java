@@ -1,5 +1,12 @@
 package caw.parkinggaragepos;
 
+/**
+ * caw.parkinggaragepos\ParkingGarage.java
+ * Oct 17, 2012 1:44:04 PM
+ * Advanced Java Programming 152-135-10442-13
+ * @author Charles Wojciuk
+ */
+
 public class ParkingGarage {
     private static final String FULL = "Parking garage is full.";
     private static final String EMPTY = "Parking garage is empty.";
@@ -10,14 +17,18 @@ public class ParkingGarage {
     private double totalHoursCharged;
     private double totalDollarsCollected;
     private Company company;
-    private int currentCarID;
-    CarDatabase data = new CarDatabase();
+    
+    private CarDatabase data = new CarDatabase();
 
     public ParkingGarage(int maximumCars, Company company) {
         setMaximumCars(maximumCars);
         setCompany(company);
     }
 
+    public final CarDatabase getCarDatabase(){
+        return data;
+    }
+    
     public final int getMaximumCars() {
         return maximumCars;
     }
@@ -66,23 +77,6 @@ public class ParkingGarage {
         this.company = company;
     }
 
-    public final int getNextCarID() {
-        if( currentCarID == 0 ){
-            return 0;
-        }
-        
-        addToCurrentCarID();
-        return currentCarID;
-    }
-
-    private final void addToCurrentCarID() {
-        ++this.currentCarID;
-    }
-
-    public final CarDatabase getData() {
-        return data;
-    }
-
     public final double getTotalHoursCharged() {
         return totalHoursCharged;
     }
@@ -100,3 +94,22 @@ public class ParkingGarage {
     }
        
 }
+/*
+ * Would use these methods to get a ID that is unique to the
+ * instance of a parking garage. Would use an id system inside
+ * the functions of the database.
+ */
+//  private int currentCarID;
+//
+//    public final int getNextCarID() {
+//        if( currentCarID == 0 ){
+//            return 0;
+//        }
+//        
+//        addToCurrentCarID();
+//        return currentCarID;
+//    }
+//
+//    private final void addToCurrentCarID() {
+//        ++this.currentCarID;
+//    }

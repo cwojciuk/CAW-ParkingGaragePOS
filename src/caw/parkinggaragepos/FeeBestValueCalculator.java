@@ -1,13 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package caw.parkinggaragepos;
 
 /**
- *
- * @author cwojciuk
+ * caw.parkinggaragepos\FeeBestValueCalculator.java
+ * Oct 17, 2012 1:44:04 PM
+ * Advanced Java Programming 152-135-10442-13
+ * @author Charles Wojciuk
  */
+
 public class FeeBestValueCalculator implements FeeParkedCarCalculatorStrategy{
     private final int ZERO = 0;
     private final String INVALIDPARKHOURS = "Car parked outside of allotted time.";
@@ -21,7 +20,7 @@ public class FeeBestValueCalculator implements FeeParkedCarCalculatorStrategy{
     private int fee;
     
     @Override
-    public double getParkingFee(int hoursParked) {
+    public double getParkingFee(double hoursParked) {
         if(hoursParked != ZERO){
         
             if(hoursParked<=maximumParkTime){

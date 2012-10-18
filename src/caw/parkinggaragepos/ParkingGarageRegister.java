@@ -1,15 +1,14 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package caw.parkinggaragepos;
 
-import java.util.Calendar;
-
 /**
- *
- * @author CWojciuk
+ * caw.parkinggaragepos\ParkingGarageRegister.java
+ * Oct 17, 2012 1:44:04 PM
+ * Advanced Java Programming 152-135-10442-13
+ * @author Charles Wojciuk
  */
+
+//import java.util.Calendar;
+
 public class ParkingGarageRegister {
     private final String NULLEXCEPTION = "Parking Garage Cannot Be Null";
     
@@ -18,6 +17,7 @@ public class ParkingGarageRegister {
     
     public ParkingGarageRegister(ParkingGarage pg){
         setParkingGarage(pg);
+        
     }
     
     public final void setParkingGarage(ParkingGarage pg){
@@ -28,10 +28,8 @@ public class ParkingGarageRegister {
         }
     }
     
-    public final void endCarStayAndOutputReceipt(Car c) {
-        
-        receipt.outputReceipt(c);
-        
+    public final void endCarStayAndOutputReceipt(int carID) {
+        receipt = new Receipt(carID, pg.getCompany().getParkingFeeStrategy(),pg.getCarDatabase());
     }
     
     

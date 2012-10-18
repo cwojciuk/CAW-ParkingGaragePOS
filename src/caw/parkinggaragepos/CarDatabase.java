@@ -1,5 +1,12 @@
 package caw.parkinggaragepos;
 
+/**
+ * caw.parkinggaragepos\CarDatabase.java
+ * Oct 17, 2012 1:44:04 PM
+ * Advanced Java Programming 152-135-10442-13
+ * @author Charles Wojciuk
+ */
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +20,7 @@ public class CarDatabase {
     public final void addCar(Car c){
         if(c != null){
             ParkedCars.add(c);
+            
         }else{
             throw new IllegalArgumentException("Car cannot be null");
         }
