@@ -140,7 +140,13 @@ public class ParkingGarage {
     public final double getTotalEarned() {
         return data.getTotalEarned();
     }
-       
+    public final Company findCompany(final String companyName) {
+        // validation is needed
+        return cdata.findCompany(companyName);
+    }
+    public final FeeParkedCarCalculatorStrategy getFeeStrategy(){
+        return cdata.findCompany(getCompany().getCompanyName()).getParkingFeeStrategy();
+    } 
 }
 /*
  * Would use these methods to get a ID that is unique to the

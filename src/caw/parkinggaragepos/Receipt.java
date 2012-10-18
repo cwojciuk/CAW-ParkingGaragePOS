@@ -1,7 +1,6 @@
 package caw.parkinggaragepos;
 
 import java.text.DecimalFormat;
-import java.text.Format;
 import java.text.NumberFormat;
 
 /**

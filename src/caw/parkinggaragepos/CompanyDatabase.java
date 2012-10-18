@@ -15,7 +15,7 @@ public class CompanyDatabase {
         new Company("Best Value", new FeeBestValueCalculator()),
         new Company("Thrifty", new FeeThrifyCalculator())
     };
-    public final Company findCompany(final String companyName) {
+    public final Company findCompany(String companyName) {
         // validation is needed
         Company company = null;
         for(Company c : companies) {

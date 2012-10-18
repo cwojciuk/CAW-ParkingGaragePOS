@@ -28,7 +28,7 @@ public class ParkingGarageRegister {
     }
     
     public final void endCarStayAndOutputReceipt(int carID) {
-        Receipt receipt = new Receipt(carID, pg.getCompany().getParkingFeeStrategy() ,pg);
+        Receipt receipt = new Receipt(carID, pg.getFeeStrategy() ,pg);
     }
     
     
