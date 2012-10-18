@@ -2,6 +2,7 @@ package caw.parkinggaragepos;
 
 import java.text.DecimalFormat;
 import java.text.Format;
+import java.text.NumberFormat;
 
 /**
  * caw.parkinggaragepos\Receipt.java
@@ -14,15 +15,19 @@ public class Receipt {
     
     private static final String NOCAR = "Car Unavailable for checkout.";
 
-    private CarDatabase database;
+    private ParkingGarage pg;
     private ReceiptOutputStrategy output = new ReceiptConsoleOutput();
+    private double receiptTotal;
     
 
-    public Receipt(int carID, FeeParkedCarCalculatorStrategy fpccs, CarDatabase carDatabase) {
-        if(carDatabase!=null){
-            this.database = carDatabase;
-            if(database.findCar(carID) != null){
+    public Receipt(int carID, FeeParkedCarCalculatorStrategy fpccs, ParkingGarage pg) {
+        if(pg!=null){
+            this.pg = pg;
+            if(pg.findCar(carID) != null){
                 Car c = queryLeavingCar(carID);
+                receiptTotal = fpccs.getParkingFee(c.getTimeInGarage());
+                pg.addToTotalHours(c.getTimeInGarage());
+                pg.addToTotalEarned(receiptTotal);
                 outputReceipt(c,fpccs);
             }else{
                 throw new IllegalArgumentException(NOCAR);
@@ -32,16 +37,17 @@ public class Receipt {
     
     private Car queryLeavingCar(int carID) {
         // needs validation
-        return database.findCar(carID);
+        return pg.findCar(carID);
     }    
     
     public final void outputReceipt(Car c, FeeParkedCarCalculatorStrategy fpccs) {
         DecimalFormat df = new DecimalFormat("#.##");
         output.outputReceipt("Receipt for a car id "+c.getCarID()+": "
                 +c.getTimeInGarage()+" hours parked, fee charged: "
-                +fpccs.getParkingFee(c.getTimeInGarage()) + "\n"
-                +"Totals for Garage: " + database.getTotalHours()
-                +" hours charged, $" + df.format(database.getTotalEarned())
-                +" collected.");
+                +NumberFormat.getCurrencyInstance().format(receiptTotal) + "\n"
+                +"Totals for Garage: " 
+                + df.format(pg.getTotalHours())+" hours charged, " 
+                +NumberFormat.getCurrencyInstance().format(pg.getTotalEarned())
+                +" collected.\n");
     }
 }

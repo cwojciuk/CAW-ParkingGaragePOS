@@ -17,10 +17,11 @@ public class FeeBestValueCalculator implements FeeParkedCarCalculatorStrategy{
     private double chargePerAdditionalTime = .50;
     private double maximumCharge = 10.00;
     private int maximumParkTime = 24;
-    private int fee;
+    
     
     @Override
     public double getParkingFee(double hoursParked) {
+        double fee = 0;
         if(hoursParked != ZERO){
         
             if(hoursParked<=maximumParkTime){
@@ -30,7 +31,7 @@ public class FeeBestValueCalculator implements FeeParkedCarCalculatorStrategy{
                     
                 }else{
                     fee += minimumFee;
-                    for(int i = ZERO;(i-(hoursParked-minimumFeeHours))>ZERO;i++){
+                    for(int i = 0;((Math.ceil(hoursParked-minimumFeeHours))-i)>=0;i++){
                         fee += chargePerAdditionalTime;
                     }
                     if(fee > maximumCharge){

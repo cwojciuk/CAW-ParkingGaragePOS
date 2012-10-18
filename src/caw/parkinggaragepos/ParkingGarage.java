@@ -19,14 +19,46 @@ public class ParkingGarage {
     private Company company;
     
     private CarDatabase data = new CarDatabase();
+    private CompanyDatabase cdata = new CompanyDatabase();
 
     public ParkingGarage(int maximumCars, Company company) {
         setMaximumCars(maximumCars);
         setCompany(company);
     }
-
-    public final CarDatabase getCarDatabase(){
-        return data;
+    
+    /**
+     * Adds the amount of a receipt to the totalEarned value of the
+     * fake database. Would normally be in another table with a relationship
+     * to the parkedCar table based on carID.
+     * @param receiptAmount 
+     */
+    public final void addToTotalEarned(double receiptAmount) {
+        //validation is handled in the Car database class
+        data.addToTotalEarned(receiptAmount);
+    }
+    
+    /**
+     * Adds the hours of a receipt to the totalHours value of the
+     * fake database. Would normally be in another table with a relationship
+     * to the parkedCar table based on carID.
+     * @param receiptHours 
+     */
+    public final void addToTotalHours(double receiptHours) {
+        //validation is handled in the Car database class
+        data.addToTotalHours(receiptHours);
+    }
+    
+    public final CompanyDatabase getCompanyDatabase(){
+        return cdata;
+    }
+    
+    /**
+     * Adds one to the total cars value represents the
+     * total number of cars that have ever used the
+     * parking garage.
+     */
+    public final void addOneToTotalCarsParked() {
+        data.addOneToTotalCarsParked();
     }
     
     public final int getMaximumCars() {
@@ -91,6 +123,22 @@ public class ParkingGarage {
 
     public final void setTotalDollarsCollected(double totalDollarsCollected) {
         this.totalDollarsCollected = totalDollarsCollected;
+    }
+    
+    /**
+     * Returns the totalHours of a database object.
+     * @return 
+     */
+    public final double getTotalHours() {
+        return data.getTotalHours();
+    }
+    
+    /**
+     * Returns the totalEarned of a database object.
+     * @return 
+     */
+    public final double getTotalEarned() {
+        return data.getTotalEarned();
     }
        
 }

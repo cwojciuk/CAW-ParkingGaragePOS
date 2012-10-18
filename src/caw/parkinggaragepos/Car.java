@@ -8,17 +8,34 @@ package caw.parkinggaragepos;
  */
 
 //import java.util.Calendar;
-
+/*
+ * This Class represents a Car object that would park inside the parking
+ * garage. This class does nothing but represent an object.
+ */
 public class Car {
+    private final String ZEROTIME = "Time in garage must be larger than 0";
     
     private double hoursStayed;
     private int carID;
+    
+    /**
+     * Constructor enforced by the Car class that makes sure the amount of
+     * time stayed, and a car ID is passed. Calls the timeInGarage method
+     * and the setCarID method which both check for appropriate values.
+     * @param hoursStayed
+     * @param carID 
+     */
     public Car(double hoursStayed, int carID) {
         timeInGarage(hoursStayed);
+        setCarID(carID);
     }
     
     public final void timeInGarage(double hoursStayed){
-        this.hoursStayed = hoursStayed;
+        if(hoursStayed!=0){
+            this.hoursStayed = hoursStayed;
+        }else{
+            throw new IllegalArgumentException(ZEROTIME);
+        }
     }
     
     public final double getTimeInGarage(){
@@ -30,6 +47,7 @@ public class Car {
     }
 
     public final void setCarID(int carID) {
+        //validation required
         this.carID = carID;
     }
     

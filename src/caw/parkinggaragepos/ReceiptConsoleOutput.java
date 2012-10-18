@@ -11,7 +11,7 @@ public class ReceiptConsoleOutput implements ReceiptOutputStrategy{
 
     @Override
     public void outputReceipt(String output) {
-        System.out.println();
+        System.out.println(output);
     }
     
 }

@@ -16,7 +16,13 @@ public class Company {
     
     private String companyName;
     private FeeParkedCarCalculatorStrategy parkingFeeStrategy;
-
+    /**
+     * Company constructor that enforces a company name and a 
+     * FeeParkedCarCalculatorStrategy. Calls setCompanyName and
+     * setParkingFeeStrategy to validate the incoming values.
+     * @param companyName
+     * @param parkingFeeStrategy 
+     */
     public Company(String companyName, FeeParkedCarCalculatorStrategy parkingFeeStrategy) {
         
         setCompanyName(companyName);

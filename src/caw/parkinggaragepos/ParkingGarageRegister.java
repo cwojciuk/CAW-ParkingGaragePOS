@@ -13,7 +13,6 @@ public class ParkingGarageRegister {
     private final String NULLEXCEPTION = "Parking Garage Cannot Be Null";
     
     private ParkingGarage pg;
-    private Receipt receipt;
     
     public ParkingGarageRegister(ParkingGarage pg){
         setParkingGarage(pg);
@@ -29,7 +28,7 @@ public class ParkingGarageRegister {
     }
     
     public final void endCarStayAndOutputReceipt(int carID) {
-        receipt = new Receipt(carID, pg.getCompany().getParkingFeeStrategy(),pg.getCarDatabase());
+        Receipt receipt = new Receipt(carID, pg.getCompany().getParkingFeeStrategy() ,pg);
     }
     
     

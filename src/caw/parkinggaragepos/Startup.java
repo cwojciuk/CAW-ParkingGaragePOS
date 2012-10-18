@@ -11,7 +11,10 @@ package caw.parkinggaragepos;
 
 public class Startup {
 
-    
+    /**
+     * The main method would represent what a clerk would do 
+     * @param args 
+     */
     public static void main(String[] args) {
         Company bestValue = new Company("Best Value", new FeeBestValueCalculator());
         ParkingGarage pg1 = new ParkingGarage(40,bestValue);
@@ -19,13 +22,16 @@ public class Startup {
         
         //Would call these methods using Calendar instances
         //Given the use of the timestamp strategy.
-        pgr.EnterNewVehicle(6.5,1);
-        pgr.EnterNewVehicle(4.2,2);
-        pgr.EnterNewVehicle(9,3);
-        pgr.EnterNewVehicle(22.4,4);
-        pgr.EnterNewVehicle(15.9,5);
+        pgr.EnterNewVehicle(6,100);
+        pgr.EnterNewVehicle(4.2,101);
+        pgr.EnterNewVehicle(9,102);
+        pgr.EnterNewVehicle(22.4,103);
+        pgr.EnterNewVehicle(15.9,104);
         
         pgr.endCarStayAndOutputReceipt(100);
-        //pgr.endCarStayAndOutputReceipt(101);
+        pgr.endCarStayAndOutputReceipt(101);
+        pgr.endCarStayAndOutputReceipt(102);
+        pgr.endCarStayAndOutputReceipt(103);
+        pgr.endCarStayAndOutputReceipt(104);
     }
 }
