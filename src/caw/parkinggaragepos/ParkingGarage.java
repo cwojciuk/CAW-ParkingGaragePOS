@@ -14,8 +14,7 @@ public class ParkingGarage {
     
     private int maximumCars;
     private int totalCars;
-    private double totalHoursCharged;
-    private double totalDollarsCollected;
+
     private Company company;
     
     private CarDatabase data = new CarDatabase();
@@ -46,10 +45,6 @@ public class ParkingGarage {
     public final void addToTotalHours(double receiptHours) {
         //validation is handled in the Car database class
         data.addToTotalHours(receiptHours);
-    }
-    
-    public final CompanyDatabase getCompanyDatabase(){
-        return cdata;
     }
     
     /**
@@ -108,22 +103,6 @@ public class ParkingGarage {
     public final void setCompany(Company company) {
         this.company = company;
     }
-
-    public final double getTotalHoursCharged() {
-        return totalHoursCharged;
-    }
-
-    public final void setTotalHoursCharged(double totalHoursCharged) {
-        this.totalHoursCharged = totalHoursCharged;
-    }
-
-    public final double getTotalDollarsCollected() {
-        return totalDollarsCollected;
-    }
-
-    public final void setTotalDollarsCollected(double totalDollarsCollected) {
-        this.totalDollarsCollected = totalDollarsCollected;
-    }
     
     /**
      * Returns the totalHours of a database object.
@@ -140,14 +119,17 @@ public class ParkingGarage {
     public final double getTotalEarned() {
         return data.getTotalEarned();
     }
+    
     public final Company findCompany(final String companyName) {
         // validation is needed
         return cdata.findCompany(companyName);
     }
+    
     public final FeeParkedCarCalculatorStrategy getFeeStrategy(){
         return cdata.findCompany(getCompany().getCompanyName()).getParkingFeeStrategy();
     } 
 }
+
 /*
  * Would use these methods to get a ID that is unique to the
  * instance of a parking garage. Would use an id system inside

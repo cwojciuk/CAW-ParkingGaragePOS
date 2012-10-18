@@ -9,6 +9,13 @@ package caw.parkinggaragepos;
 
 //import java.util.Calendar;
 
+/*
+ * Attempted to think of what a parking garage clerk would see and
+ * I thought the only physical thing a clerk should see is the
+ * parking garage he/she works at. Therefore all the methods
+ * are hidden by the parking garage class.
+ */
+
 public class ParkingGarageRegister {
     private final String NULLEXCEPTION = "Parking Garage Cannot Be Null";
     

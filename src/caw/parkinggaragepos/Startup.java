@@ -12,7 +12,7 @@ package caw.parkinggaragepos;
 public class Startup {
 
     /**
-     * The main method would represent what a clerk would do 
+     * The main method would represent what a clerk would do.
      * @param args 
      */
     public static void main(String[] args) {
@@ -20,8 +20,6 @@ public class Startup {
         ParkingGarage pg1 = new ParkingGarage(40,bestValue);
         ParkingGarageRegister pgr = new ParkingGarageRegister(pg1);
         
-        //Would call these methods using Calendar instances
-        //Given the use of the timestamp strategy.
         pgr.EnterNewVehicle(6,100);
         pgr.EnterNewVehicle(4.2,101);
         pgr.EnterNewVehicle(9,102);
